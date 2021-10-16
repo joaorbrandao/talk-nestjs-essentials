@@ -1,10 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { BackupModule } from './backup/backup.module';
+import { SensorsModule } from './sensors/sensors.module';
+import { CatsModule } from './cats/cats.module';
+import { ActuatorsModule } from './actuators/actuators.module';
+import { CustomCacheModule } from './cache/cache.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ScheduleModule.forRoot(),
+    CustomCacheModule,
+    BackupModule,
+    CatsModule,
+    SensorsModule,
+    ActuatorsModule,
+  ],
 })
 export class AppModule {}
