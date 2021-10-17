@@ -3,6 +3,7 @@ import { Cron } from '@nestjs/schedule';
 import props from '../../config/props';
 import { WaterLevelSensorService } from '../sensors/water-level-sensor.service';
 import { WaterPumpService } from '../actuators/water-pump.service';
+import { BackupWaterBowlPublisher } from './backup-water-bowl.publisher';
 
 //TODO: TALK
 @Injectable()
@@ -10,6 +11,7 @@ export class BackupWaterTasks {
   constructor(
     private readonly waterLevelSensorService: WaterLevelSensorService,
     private readonly waterPumpService: WaterPumpService,
+    private readonly waterBowlPublisher: BackupWaterBowlPublisher,
   ) {}
   /**
    * Check for water in the bowl and push more if needed.
@@ -29,6 +31,11 @@ export class BackupWaterTasks {
         props.hardware.waterBowl.capacity,
       )
     ) {
+      await this.waterBowlPublisher.lowLevelOfWater({
+        levelOfWater: currentAmountOfWater,
+        date: new Date(),
+      });
+
       await this.waterPumpService.pushWaterToBowl();
     }
   }

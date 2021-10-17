@@ -18,6 +18,10 @@ const props = {
       timeout: 1000, // ms
     },
   },
+  rabbitmq: {
+    host: 'localhost',
+    port: 5672,
+  },
 };
 
 export default props;

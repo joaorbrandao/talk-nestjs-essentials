@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { WaterBowl } from '../hardware/water-bowl';
+import { WaterBowl } from '../hardware/water-bowl/water-bowl';
 import props from '../../config/props';
 import { CacheService } from '../cache/cache.service';
 
