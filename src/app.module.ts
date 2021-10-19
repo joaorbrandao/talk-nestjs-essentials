@@ -10,7 +10,7 @@ import { HardwareModule } from './hardware/hardware.module';
 @Module({
   imports: [
     //TODO: Remove next line before demo.
-    ScheduleModule.forRoot(),
+    // ScheduleModule.forRoot(),
     CustomCacheModule,
     BackupModule,
     HardwareModule,

@@ -5,7 +5,6 @@ import { WaterLevelSensorService } from '../sensors/water-level-sensor.service';
 import { WaterPumpService } from '../actuators/water-pump.service';
 import { BackupWaterBowlPublisher } from './backup-water-bowl.publisher';
 
-//TODO: TALK
 @Injectable()
 export class BackupWaterTasks {
   constructor(
