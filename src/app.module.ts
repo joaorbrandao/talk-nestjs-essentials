@@ -5,10 +5,10 @@ import { CatsModule } from './cats/cats.module';
 import { ActuatorsModule } from './actuators/actuators.module';
 import { CustomCacheModule } from './cache/cache.module';
 import { HardwareModule } from './hardware/hardware.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
-    //TODO: Heya!
     // ScheduleModule.forRoot(),
     CustomCacheModule,
     BackupModule,
